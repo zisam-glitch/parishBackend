@@ -2,6 +2,12 @@ import express, { Request, Response } from "express";
 import * as dotenv from "dotenv";
 import mongoose from "mongoose";
 import ProductRouter from "./routes/produts";
+import AuthRouter from "./routes/auth";
+import UserRouter from "./routes/user";
+import CartRouter from "./routes/cart";
+import OrderRouter from "./routes/order";
+
+
 
 dotenv.config();
 
@@ -22,6 +28,11 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.use("/api/products", ProductRouter);
+app.use("/api/users", UserRouter);
+app.use("/api/", AuthRouter);
+app.use("/api/order", OrderRouter);
+app.use("/api/cart", CartRouter);
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
