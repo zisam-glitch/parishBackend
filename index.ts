@@ -12,7 +12,7 @@ import OrderRouter from "./routes/order";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 80, '0.0.0.0';
 const MONGO = process.env.MONGO as string;
 
 mongoose
